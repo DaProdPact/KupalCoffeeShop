@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Oswald&display=swap');
+
+
+::-webkit-scrollbar {
+  display: none;
+  }
+.primarybg{
+  background-color:#DEB88B;
+}
+.primarynav{
+  height:7vh;  
+}
+.primarytext{
+  color:#544040;
+  font-family:'Bree Serif', serif;
+  
+}
+
+.secondarybg{
+  background-color:green;
+}
+
+.logo{
+  width: 4rem;
+}
+i{
+  font-size: 1.2rem;
+}
+
+.nav-item{
+  font-family: 'Oswald', sans-serif;
+}
+
+
+
+.bg-image{
+  background-image: url(../img/background.jpg);
+  /* background-size: contain; */
+  background-size: 90vw 100vh;
+  background-repeat: no-repeat, repeat;
+  height: 60vh;
+}
+
+.primary-btn{
+  background-color: #544040;
+  border: 0px white;
+}
+.primary-btn:hover{
+  color: #544040;
+}
+
+.quotes{
+  font-size: 2.2em;
+  font-family: 'Oswald', sans-serif;
+  color:#704f1e;
+}
+.divider{
+  font-size: 1.5em;
+  font-family: 'Oswald', sans-serif;
+  color:#704f1e;
+}
+
+.cafe_icon{
+    width: 3rem;
+    height: 2rem;
+    margin-top: .3rem;
+}
+
+.featues_picture{
+  width: 25em;
+  height: 12em;
+  border: #544040 5px solid;
+  
+}
+.schedule{
+  width: 25em;
+  height: 23em;
+
+}
+.features-description{
+  color: #544040;
+}
+
+.no-user{
+  font-size: 3.2rem;
+}
+
+
+.about_image{
+  width: 30em;
+  height: 17em;
+}
+
+.item_name{
+  color: #544040;
+  font-size: 1.5rem;
+}
+.bg-footer{
+  background-image:url(../img/footer.jpg);
+  background-size: 105vw 50vh;
+  background-repeat: no-repeat, repeat;
+  height: 50vh;
+}
+.mask{
+  background-color:#2f1e069f;
+}
+.footer-text{
+  font-family:'Bree Serif', serif;
+}
