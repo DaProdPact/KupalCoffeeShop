@@ -20,7 +20,12 @@ require('../components/secondary_navbar.php');
           ~ Unknown
         </p>
 
-        <div class="btn primary-btn text-white w-75 my-3 ms-5 nav-item">SEE OUR MENU</div>
+        <?php
+        if($_SESSION['status'] == 'notyetlogin'){?>
+        <button class="btn primary-btn text-white w-75 my-3 ms-5 nav-item productcheckpoint">SEE OUR MENU</button>
+        <?php } else { ?>
+        <a href="product.php"><button class="btn primary-btn text-white w-75 my-3 ms-5 nav-item">SEE OUR MENU</button></a>
+        <?php } ?>
       </div>
     </section>
   </div>
@@ -237,10 +242,13 @@ require('../components/secondary_navbar.php');
 <!-- End Footer Section -->
 
 
+
+
 <?php
+require('../modals/successmodal.php');
 require('../modals/signin_signup.php');
 require('../modals/message.php');
-require('../modals/checkpoint .php');
+require('../modals/checkpoint.php');
 require('../modals/logout.php');
 require('../partials/footer.html');
 ?>

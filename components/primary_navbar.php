@@ -31,6 +31,14 @@
     <div class="d-flex align-items-center">
       <!-- Icon -->
       <div class="dropdown">
+
+      
+      <?php
+        if($_SESSION['status'] == 'notyetlogin'){?>
+        <a class="text-reset me-3 hidden-arrow productcheckpoint">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+        <?php } else { ?>
         <a class="text-reset me-3 dropdown-toggle hidden-arrow"
           href="#"
           id="navbarDropdownMenuLink"
@@ -39,6 +47,11 @@
           aria-expanded="false">
           <i class="fas fa-shopping-cart"></i>
         </a>
+        <?php } ?>
+
+        
+
+
         <ul
           class="dropdown-menu dropdown-menu-end"
           aria-labelledby="navbarDropdownMenuLink"
@@ -58,8 +71,6 @@
                 <span class="features-description fw-bold">Americano Coffee</span><br>
                 <small class="features-description">Price : $2</small>
                 <small class="ps-5 features-description">x3</small>
-
-
               </div>
               </div>
               <div class="row me-5 mb-2">
@@ -70,12 +81,8 @@
                 <span class="features-description pe-2 fw-bold">Americano Coffee</span><br>
                 <small class="features-description pe-2">Price : $2</small>
                 <small class="ps-5 features-description pe-2">x3</small>
-
-
               </div>
               </div>
-
-              
             </a>
           </li>
           <li>

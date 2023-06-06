@@ -108,8 +108,15 @@ $(document).ready(function() {
         success:function(response){
           console.log(response)
           if(response == '1'){
+            $('#login_modal').modal('hide')
             console.log('login')
-            window.location.href = "home.php";
+            $('#success_modal').modal('show')
+            $('#successmodal').text('Login Successfully')
+            setTimeout(
+              function() 
+              {
+                window.location.href = "home.php";
+              }, 1000);
           }
           else{
             $('.invalid').show();
@@ -118,15 +125,26 @@ $(document).ready(function() {
       })
     }
   })
+ // End Login Function
 
+ // Logout Function
   $('#logout').on('click',function(){
     console.log('wew')
     $('#logout_modal').modal('show');
   })
+
   $('#logout_btn').on('click',function(){
-    window.location.href = "../index.php";
+    $('#logout_modal').modal('hide');
+    $('#success_modal').modal('show')
+    $('#successmodal').text('Logout Successfully')
+    setTimeout(
+      function() 
+      {
+        window.location.href = "../index.php";
+      }, 1000);
   })
-  // End Login Function
+ // End Logout Function
+ 
 
   // Product Checkpoint
   $('.productcheckpoint').on('click',function(){
