@@ -30,10 +30,59 @@
     <!-- Right elements -->
     <div class="d-flex align-items-center">
       <!-- Icon -->
-      <a class="text-reset me-3" href="#">
-        <i class="fas fa-shopping-cart"></i>
-      </a>
+      <div class="dropdown">
+        <a class="text-reset me-3 dropdown-toggle hidden-arrow"
+          href="#"
+          id="navbarDropdownMenuLink"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuLink"
+        >
+          <li>
+          <a class="divider" href="#">
+            <h3 class="primarytext my-1 ps-2"> <i class="fas fa-cart-arrow-down"></i> Cart</h3>
+          </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">
+              <div class="row me-5 mb-2">
+              <div class="col-5">
+                <img src="../img/Cafelogo.png" class="cart_image" alt="">
+              </div>
+              <div class="col-6">
+                <span class="features-description fw-bold">Americano Coffee</span><br>
+                <small class="features-description">Price : $2</small>
+                <small class="ps-5 features-description">x3</small>
 
+
+              </div>
+              </div>
+              <div class="row me-5 mb-2">
+              <div class="col-5">
+                <img src="../img/Cafelogo.png" class="cart_image" alt="">
+              </div>
+              <div class="col-6">
+                <span class="features-description pe-2 fw-bold">Americano Coffee</span><br>
+                <small class="features-description pe-2">Price : $2</small>
+                <small class="ps-5 features-description pe-2">x3</small>
+
+
+              </div>
+              </div>
+
+              
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="cart.php"> <i class="fas fa-arrow-right-from-bracket"></i> Go to Cart</a>
+          </li>
+        </ul>
+      </div>
       <!-- Notifications -->
       <div class="dropdown">
         <a

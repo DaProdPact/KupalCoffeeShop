@@ -237,11 +237,10 @@ require('../components/secondary_navbar.php');
 <!-- End Footer Section -->
 
 
-
-
 <?php
 require('../modals/signin_signup.php');
 require('../modals/message.php');
+require('../modals/checkpoint .php');
 require('../modals/logout.php');
 require('../partials/footer.html');
 ?>

@@ -128,5 +128,21 @@ $(document).ready(function() {
   })
   // End Login Function
 
+  // Product Checkpoint
+  $('.productcheckpoint').on('click',function(){
+    console.log('woah')
+    $('#checkpoint_modal').modal('show');
+  })
+
+  $('#gotologin').on('click',function(){
+    $('#checkpoint_modal').modal('hide');
+    $('#login_modal').modal('show')
+
+  })
+  // End Product Checkpoint
+
+  // View Item
+  $('#view_modal').modal('show')
+  // End View Item
 
 });

@@ -25,14 +25,24 @@
           
           <a class="nav-link primarytext" href="home.php"><i class="fas fa-mug-hot fa-flip-horizontal"></i> Home</a>
         </li>
+
+        <?php
+        if($_SESSION['status'] == 'notyetlogin'){?>
+        <li class="nav-item">
+          <a class="nav-link primarytext productcheckpoint"><i class="fas fa-mug-hot fa-flip-horizontal"></i> Our Menu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link primarytext productcheckpoint"><i class="fas fa-mug-hot fa-flip-horizontal"></i> Order</a>
+        </li>
+        <?php } 
+        else { ?>
         <li class="nav-item">
           <a class="nav-link primarytext" href="product.php"><i class="fas fa-mug-hot fa-flip-horizontal"></i> Our Menu</a>
         </li>
-
         <li class="nav-item">
-          <a class="nav-link primarytext" href="#"><i class="fas fa-mug-hot fa-flip-horizontal"></i> Order</a>
+          <a class="nav-link primarytext" href="order.php"><i class="fas fa-mug-hot fa-flip-horizontal"></i> Order</a>
         </li>
-
+        <?php } ?>
         <li class="nav-item">
           <a class="nav-link primarytext" href="#"><i class="fas fa-mug-hot fa-flip-horizontal"></i> News</a>
         </li>

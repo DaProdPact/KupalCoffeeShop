@@ -62,16 +62,15 @@ i{
 }
 
 .cafe_icon{
-    width: 3rem;
-    height: 2rem;
-    margin-top: .3rem;
+  width: 3rem;
+  height: 2rem;
+  margin-top: .3rem;
 }
 
 .featues_picture{
   width: 25em;
   height: 12em;
   border: #544040 5px solid;
-  
 }
 .schedule{
   width: 25em;
@@ -107,4 +106,17 @@ i{
 }
 .footer-text{
   font-family:'Bree Serif', serif;
+}
+
+.product_picture{
+  width: 280px;
+  height: 150px;
+  border: #544040 5px solid;
+}
+.product_name{
+  color: #544040;
+  font-size: 1rem;
+}
+.cart_image{
+  width: 3.5rem;
 }
