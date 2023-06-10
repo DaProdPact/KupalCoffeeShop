@@ -159,8 +159,8 @@ $(document).ready(function() {
   })
   // End Product Checkpoint
 
-  // View Item
-  $('#view_modal').modal('show')
-  // End View Item
+  // // View Item
+  // $('#view_modal').modal('show')
+  // // End View Item
 
 });

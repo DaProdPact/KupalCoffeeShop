@@ -120,3 +120,7 @@ i{
 .cart_image{
   width: 3.5rem;
 }
+
+input[type="number"]::-webkit-inner-spin-button {
+  display: none;
+}

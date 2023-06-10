@@ -1,8 +1,8 @@
 <!-- Product Section -->
 <div class="modal fade" id="view_modal" tabindex="-1" aria-labelledby="register_modal" aria-hidden="true">
   <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-        <div class="modal-body">
+    <div class="modal-content" id="product_content">
+        <!-- <div class="modal-body">
         <div class="row">
           <div class="col-5 primarytext">
           <img src="../img/americano_coffee.jpg" class="border-0 product_picture" alt="">
@@ -21,7 +21,7 @@
             </div>
           </div>
         </div>
-        </div>
+        </div> -->
     </div>
   </div>
 </div>

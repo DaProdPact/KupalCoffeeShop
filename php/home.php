@@ -91,103 +91,40 @@ require('../components/secondary_navbar.php');
 <!-- End About Section -->
 
 <!-- Best Seller Section -->
+
 <section class="row mt-3 mb-5 ">
 <div class="d-flex justify-content-center">
     <img src="../img/coffee_icon.png" class="cafe_icon" alt="">
     <p class="divider fw-bold">Best Seller</p>
     <img src="../img/coffee_icon.png" class="cafe_icon" alt="">
   </div>
-
+  <?php
+$bestseller = "SELECT * FROM product LIMIT 3";
+$bestsellersql = mysqli_query($connection,$bestseller);
+while($row = mysqli_fetch_array($bestsellersql)){
+?>
   <div class="col-4 px-3">
 
   <div class="card">
       <div class="card-body">
-        <img src="../img/americano_coffee.jpg" class="featues_picture" alt="">
+        <img src="../product_image/<?=$row['product_picture']?>" class="featues_picture" alt="">
         <div class="row">
           <div class="col-7">
-            <p class="item_name fw-bold mt-2 ms-1">Americano Coffee</p>
-          </div>
-          <div class="offset-2 col-3 mt-2 py-2 d-flex gap-2">
-          <i class="fas fa-cart-shopping features-description"></i>
-          <i class="far fa-heart features-description"></i>
-          <i class="far fa-eye features-description"></i>
+            <p class="item_name fw-bold mt-2 ms-1"><?=$row['product_name']?></p>
           </div>
         </div>
         <div class="row">
-          <div class="col-7">
-            <span class="features-description ms-1">Price : $2</span>
-          </div>
-          <div class="offset-2 col-3">
-            <input type="number" id="quantity" class="form-control" value="1" />
-          </div>
-        </div>
-        <div class="row">
-        <div class="btn primary-btn text-white mt-3 nav-item">Buy Now !</div>
+        <?php if($_SESSION['status'] == 'notyetlogin'){?>
+        <button class="btn primary-btn text-white mt-3 nav-item productcheckpoint">Go to Show Now !</button>
+        <?php } 
+        else { ?>
+        <a href="product.php"><button class="btn primary-btn text-white mt-3 nav-item w-100">Go to Show Now !</button></a>
+        <?php }?>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="col-4 px-3">
-
-  <div class="card">
-      <div class="card-body">
-        <img src="../img/black_coffee.jpeg" class="featues_picture" alt="">
-        <div class="row">
-          <div class="col-7">
-            <p class="item_name fw-bold mt-2 ms-1">Black Coffee</p>
-          </div>
-          <div class="offset-2 col-3 mt-2 py-2 d-flex gap-2">
-          <i class="fas fa-cart-shopping features-description"></i>
-          <i class="far fa-heart features-description"></i>
-          <i class="far fa-eye features-description"></i>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-7">
-            <span class="features-description ms-1">Price : $2</span>
-          </div>
-          <div class="offset-2 col-3">
-            <input type="number" id="quantity" class="form-control" value="1" />
-          </div>
-        </div>
-        <div class="row">
-        <div class="btn primary-btn text-white mt-3 nav-item">Buy Now !</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-4 px-3">
-
-  <div class="card">
-      <div class="card-body">
-        <img src="../img/capucino_coffee.png" class="featues_picture" alt="">
-        <div class="row">
-          <div class="col-7">
-            <p class="item_name fw-bold mt-2 ms-1">Capucino Coffee</p>
-          </div>
-          <div class="offset-2 col-3 mt-2 py-2 d-flex gap-2">
-          <i class="fas fa-cart-shopping features-description"></i>
-          <i class="far fa-heart features-description"></i>
-          <i class="far fa-eye features-description"></i>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-7">
-            <span class="features-description ms-1">Price : $2</span>
-          </div>
-          <div class="offset-2 col-3">
-            <input type="number" id="quantity" class="form-control" value="1" />
-          </div>
-        </div>
-        <div class="row">
-        <div class="btn primary-btn text-white mt-3 nav-item">Buy Now !</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  </div> 
+<?php } ?>
 </section>
 <!-- End Best Seller Section -->
 

@@ -19,11 +19,28 @@ require('../components/secondary_navbar.php');
   <div class="offset-2 col-8 shadow rounded-2">
     <div class="row">
       <p class="divider fw-bold text-center">My Bag</p>
-      <div class="col-4 shadow">
+      <div class="<?=$_SESSION['columnclass']?>">
       <div class="col-12 ms-4">
         <div class="row me-5 mb-2 ps-2 primarybg">
           <div class="col-3">
-            <img src="../img/americano_coffee.jpg" class="cart_image my-2" alt="">
+            <img src="../product_image/<?=$_SESSION['choosenpicture']?>" class="cart_image my-2 pe-2" alt="">
+          </div>
+          <div class="col-9 mt-1">
+            <span class="features-description fw-bold"><?=$_SESSION['chosen_product_name']?></span><br>
+            <small class="features-description">Price :  &#8369; <?=$_SESSION['sizeprice']?></small>
+            <small class="ps-5 features-description">&times;  <?=$_SESSION['chosenquantity']?></small>
+        </div>
+      </div>
+      </div>
+      </div>
+
+      
+
+      <!-- <div class="col-4">
+      <div class="col-12 ms-4">
+        <div class="row me-5 mb-2 ps-2 primarybg">
+          <div class="col-3">
+            <img src="../product_image/americano_coffee.jpg" class="cart_image my-2 pe-2" alt="">
           </div>
           <div class="col-9 mt-1">
             <span class="features-description fw-bold">Americano Coffee</span><br>
@@ -34,11 +51,11 @@ require('../components/secondary_navbar.php');
       </div>
       </div>
 
-      <div class="col-4 shadow">
+      <div class="col-4">
       <div class="col-12 ms-4">
         <div class="row me-5 mb-2 ps-2 primarybg">
           <div class="col-3">
-            <img src="../img/americano_coffee.jpg" class="cart_image my-2" alt="">
+            <img src="../product_image/americano_coffee.jpg" class="cart_image my-2 pe-2" alt="">
           </div>
           <div class="col-9 mt-1">
             <span class="features-description fw-bold">Americano Coffee</span><br>
@@ -49,11 +66,11 @@ require('../components/secondary_navbar.php');
       </div>
       </div>
 
-      <div class="col-4 shadow">
+      <div class="col-4">
       <div class="col-12 ms-4">
         <div class="row me-5 mb-2 ps-2 primarybg">
           <div class="col-3">
-            <img src="../img/americano_coffee.jpg" class="cart_image my-2" alt="">
+            <img src="../product_image/americano_coffee.jpg" class="cart_image my-2 pe-2" alt="">
           </div>
           <div class="col-9 mt-1">
             <span class="features-description fw-bold">Americano Coffee</span><br>
@@ -62,7 +79,7 @@ require('../components/secondary_navbar.php');
         </div>
       </div>
       </div>
-      </div>
+      </div> -->
 
     </div>
     </div>
@@ -73,7 +90,7 @@ require('../components/secondary_navbar.php');
         <p class="divider fw-bold ps-5 pt-2">Total Amount Payable</p>
       </div>
       <div class="col-2">
-        <p class="divider fw-bold ps-5 pt-2">$10</p>
+        <p class="divider fw-bold ps-5 pt-2">&#8369; <?=$_SESSION['totalpayable']?></p>
       </div>
 
     </div>
@@ -83,7 +100,17 @@ require('../components/secondary_navbar.php');
       <p class="divider fw-bold ps-5 pt-2">Shipping Fee</p>
       </div>
       <div class="col-2">
-        <p class="divider fw-bold ps-5 pt-2">$2</p>
+        <p class="divider fw-bold ps-5 pt-2">&#8369; 40</p>
+      </div>
+
+    </div>
+
+    <div class="row mt-3 shadow rounded-2 bg-white">
+      <div class="col-10">
+      <p class="divider fw-bold ps-5 pt-2">Total </p>
+      </div>
+      <div class="col-2">
+        <p class="divider fw-bold ps-5 pt-2">&#8369; <?=$_SESSION['totalpayable'] + 40 ?></p>
       </div>
 
     </div>
@@ -103,7 +130,7 @@ require('../components/secondary_navbar.php');
         <div class="form mb-2">
           <label class="form-label ms-1 features-description fw-bold">Customer Address</label>
           <input type="text" id="Customer_Address" class="form-control" placeholder="Customer Address"/>
-          <small class="form-helper ms-1 text-danger helper0" style="display:none;">Customer Address is required*</small>
+          <small class="form-helper ms-1 text-danger helper1" style="display:none;">Customer Address is required*</small>
         </div>
       </div>
 
@@ -111,7 +138,7 @@ require('../components/secondary_navbar.php');
       <div class="form mb-2">
           <label class="form-label ms-1 features-description fw-bold">Customer Number</label>
           <input type="text" id="Customer_Number" class="form-control" placeholder="Customer Number"/>
-          <small class="form-helper ms-1 text-danger helper0" style="display:none;">Customer Number is required*</small>
+          <small class="form-helper ms-1 text-danger helper2" style="display:none;">Customer Number is required*</small>
         </div>
       </div>
 
@@ -120,7 +147,9 @@ require('../components/secondary_navbar.php');
           <div class="form-group">
           <label class="form-label ms-1 features-description fw-bold">Payment Method</label>
             <select id="my-select" class="form-control" name="">
-              <option>Cash On Delivery</option>
+              <option value="COD">Cash On Delivery</option>
+              <option value="Online">PAYMAYA</option>
+
             </select>
           </div>
         </div>
@@ -130,18 +159,18 @@ require('../components/secondary_navbar.php');
         <div class="form mb-2">
           <label class="form-label ms-1 features-description fw-bold">Customer Email</label>
           <input type="text" id="Customer_Email" class="form-control" placeholder="Customer Email"/>
-          <small class="form-helper ms-1 text-danger helper0" style="display:none;">Customer Email is required*</small>
+          <small class="form-helper ms-1 text-danger helper3" style="display:none;">Customer Email is required*</small>
         </div>
       </div>
 
       <div class="col-12">
-      <button type="button" class="buttonhover text-white py-2 rounded-5 px-3 primary-btn mb-2 w-100"> <i class="fas fa-location-dot"></i> Place Order</button>
-
+      <button type="button" class="buttonhover text-white py-2 rounded-5 px-3 primary-btn mb-2 w-100" id="placeorder"> <i class="fas fa-location-dot"></i> Place Order</button>
+      <input type="hidden" class="user_id" value="<?=$session_id?>">
       </div>
 
-
-   
-
+      <div class="col-12">
+      <button type="button" class="buttonhover text-white py-2 rounded-5 px-3 primary-btn mb-3 w-100"> <i class="fas fa-circle-arrow-left"></i> Back to Shop</button>
+      </div>
     </div>
     </div>
 
@@ -149,11 +178,12 @@ require('../components/secondary_navbar.php');
 
 <!-- End Order Section -->
 
-
-
 <?php
 require('../modals/signin_signup.php');
 require('../modals/message.php');
+require('../modals/successmodal.php');
 require('../modals/logout.php');
 require('../partials/footer.html');
+
 ?>
+<script src="../javascript/checkout.js"></script>
