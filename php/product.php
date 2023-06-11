@@ -28,6 +28,7 @@ require('../components/secondary_navbar.php');
 require('../modals/signin_signup.php');
 require('../modals/message.php');
 require('../modals/choose_size.php');
+require('../modals/successmodal.php');
 require('../modals/product_view.php');
 require('../modals/logout.php');
 require('../partials/footer.html');

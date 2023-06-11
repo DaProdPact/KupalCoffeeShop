@@ -2,6 +2,8 @@
 session_start();
 $_SESSION['status'];
 $session_id = $_SESSION['id'];
+$session_checkout = $_SESSION['checkout'];
+$total = 0;
 
 require('../database/database.php');
 require('../partials/header.html');
@@ -16,7 +18,73 @@ require('../components/secondary_navbar.php');
       <p class="divider fw-bold">Checkout Summary</p>
       <img src="../img/coffee_icon.png" class="cafe_icon" alt="">
   </div>
+  <?php 
+    if($session_checkout == 'cart'){ ?>
+
+
+
+      <div class="offset-2 col-8 shadow rounded-2">
+
+      <div class="row">
+        <p class="divider fw-bold text-center">My Bag</p>
+
+        <?php
+        $cartquery = "SELECT * FROM cart WHERE cart_user_id = '$session_id'";
+        $cartsql = mysqli_query($connection,$cartquery);
+        while($row = mysqli_fetch_assoc($cartsql)){ 
+        $total = $total + $row['cart_product_subtotal'];
+        ?>
+        <div class="<?=$_SESSION['columnclass']?>">
+        <div class="col-12 ms-4">
+          <div class="row me-5 mb-2 ps-2 primarybg">
+            <div class="col-3">
+              <img src="../product_image/<?=$row['cart_product_profile']?>" class="cart_image my-2 pe-2" style="height:50px;" alt="">
+            </div>
+            <div class="col-9 mt-1">
+              <span class="features-description fw-bold"><?=$row['cart_product_name']?></span><br>
+              <small class="features-description">Price :  &#8369; <?=$row['cart_product_price']?></small>
+              <small class="ps-5 features-description">&times;  <?=$row['cart_product_quantity']?></small>
+          </div>
+        </div>
+        </div>
+        </div>
+        <?php } ?>
+
+      </div>
+      </div>
+      <div class="row mt-3 shadow rounded-2 bg-white">
+        <div class="col-10">
+          <p class="divider fw-bold ps-5 pt-2">Total Amount Payable</p>
+        </div>
+        <div class="col-2">
+          <p class="divider fw-bold ps-5 pt-2">&#8369; <?=$total?></p>
+        </div>
+  
+      </div>
+  
+      <div class="row mt-3 shadow rounded-2 bg-white">
+        <div class="col-10">
+        <p class="divider fw-bold ps-5 pt-2">Shipping Fee</p>
+        </div>
+        <div class="col-2">
+          <p class="divider fw-bold ps-5 pt-2">&#8369; 40</p>
+        </div>
+  
+      </div>
+  
+      <div class="row mt-3 shadow rounded-2 bg-white">
+        <div class="col-10">
+        <p class="divider fw-bold ps-5 pt-2">Total </p>
+        </div>
+        <div class="col-2">
+          <p class="divider fw-bold ps-5 pt-2">&#8369; <?=$total + 40 ?></p>
+        </div>
+  
+      </div>
+
+  <?php  } else {?>
   <div class="offset-2 col-8 shadow rounded-2">
+
     <div class="row">
       <p class="divider fw-bold text-center">My Bag</p>
       <div class="<?=$_SESSION['columnclass']?>">
@@ -33,58 +101,8 @@ require('../components/secondary_navbar.php');
       </div>
       </div>
       </div>
-
-      
-
-      <!-- <div class="col-4">
-      <div class="col-12 ms-4">
-        <div class="row me-5 mb-2 ps-2 primarybg">
-          <div class="col-3">
-            <img src="../product_image/americano_coffee.jpg" class="cart_image my-2 pe-2" alt="">
-          </div>
-          <div class="col-9 mt-1">
-            <span class="features-description fw-bold">Americano Coffee</span><br>
-            <small class="features-description">Price : $2</small>
-            <small class="ps-5 features-description">x3</small>
-        </div>
-      </div>
-      </div>
-      </div>
-
-      <div class="col-4">
-      <div class="col-12 ms-4">
-        <div class="row me-5 mb-2 ps-2 primarybg">
-          <div class="col-3">
-            <img src="../product_image/americano_coffee.jpg" class="cart_image my-2 pe-2" alt="">
-          </div>
-          <div class="col-9 mt-1">
-            <span class="features-description fw-bold">Americano Coffee</span><br>
-            <small class="features-description">Price : $2</small>
-            <small class="ps-5 features-description">x3</small>
-        </div>
-      </div>
-      </div>
-      </div>
-
-      <div class="col-4">
-      <div class="col-12 ms-4">
-        <div class="row me-5 mb-2 ps-2 primarybg">
-          <div class="col-3">
-            <img src="../product_image/americano_coffee.jpg" class="cart_image my-2 pe-2" alt="">
-          </div>
-          <div class="col-9 mt-1">
-            <span class="features-description fw-bold">Americano Coffee</span><br>
-            <small class="features-description">Price : $2</small>
-            <small class="ps-5 features-description">x3</small>
-        </div>
-      </div>
-      </div>
-      </div> -->
-
     </div>
     </div>
-
-
     <div class="row mt-3 shadow rounded-2 bg-white">
       <div class="col-10">
         <p class="divider fw-bold ps-5 pt-2">Total Amount Payable</p>
@@ -114,6 +132,8 @@ require('../components/secondary_navbar.php');
       </div>
 
     </div>
+
+    <?php } ?>
 
     <div class="offset-2 col-8 shadow rounded-2 mt-3 mb-3">
     <div class="row shadow">
@@ -165,6 +185,7 @@ require('../components/secondary_navbar.php');
 
       <div class="col-12">
       <button type="button" class="buttonhover text-white py-2 rounded-5 px-3 primary-btn mb-2 w-100" id="placeorder"> <i class="fas fa-location-dot"></i> Place Order</button>
+      <input type="hidden" class="session_checkout" value="<?=$session_checkout?>">
       <input type="hidden" class="user_id" value="<?=$session_id?>">
       </div>
 

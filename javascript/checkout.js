@@ -1,6 +1,7 @@
 $(document).ready(function(){
   $('#placeorder').on('click',function(){
     var userid = $('.user_id').val()
+    var session_checkout = $('.session_checkout').val()
     var Customer_Name = $('#Customer_Name').val()
     var Customer_Address = $('#Customer_Address').val()
     var Customer_Number = $('#Customer_Address').val()
@@ -38,6 +39,7 @@ $(document).ready(function(){
           Customer_Number:Customer_Number,
           Customer_Email:Customer_Email,
           payment_method:payment_method,
+          session_checkout:session_checkout
         },
         success:function(response){
           console.log(response)

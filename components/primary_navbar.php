@@ -1,4 +1,6 @@
-
+<?php
+$session_id = $_SESSION['id'];
+?>
 <!-- Navbar -->
 
 <nav class="navbar navbar-expand-lg navbar-light primarybg">
@@ -46,12 +48,14 @@
           data-mdb-toggle="dropdown"
           aria-expanded="false">
           <i class="fas fa-shopping-cart"></i>
+          <?php
+          $countquery = "SELECT cart_id,COUNT(cart_id) FROM `cart` WHERE cart_user_id = '$session_id' ";
+          $countsql = mysqli_query($connection,$countquery);
+          while($count= mysqli_fetch_assoc($countsql)){ ?>
+            <span class="badge rounded-pill badge-notification bg-danger"><?=$count['COUNT(cart_id)']?></span>
+          <?php } ?>
         </a>
         <?php } ?>
-
-        
-
-
         <ul
           class="dropdown-menu dropdown-menu-end"
           aria-labelledby="navbarDropdownMenuLink"
@@ -61,28 +65,24 @@
             <h3 class="primarytext my-1 ps-2"> <i class="fas fa-cart-arrow-down"></i> Cart</h3>
           </a>
           </li>
-          <li>
+          <li class="bg-secondary bg-opacity-25">
             <a class="dropdown-item" href="#">
+              <?php
+              $cartlistquery = "SELECT * FROM cart WHERE cart_user_id = '$session_id'";
+              $cartlistsql = mysqli_query($connection,$cartlistquery);
+              while($row = mysqli_fetch_assoc($cartlistsql)){
+              ?>
               <div class="row me-5 mb-2">
               <div class="col-5">
-                <img src="../img/Cafelogo.png" class="cart_image" alt="">
+                <img src="../product_image/<?=$row['cart_product_profile']?>" class="cart_image" style="height: 50px;" alt="">
               </div>
               <div class="col-6">
-                <span class="features-description fw-bold">Americano Coffee</span><br>
-                <small class="features-description">Price : $2</small>
-                <small class="ps-5 features-description">x3</small>
+                <span class="features-description fw-bold"><?=$row['cart_product_name']?></span><br>
+                <small class="features-description">Price : &#8369;<?=$row['cart_product_price']?></small>
+                <small class="ps-5 features-description">&times; <?=$row['cart_product_quantity']?></small>
               </div>
               </div>
-              <div class="row me-5 mb-2">
-              <div class="col-5">
-                <img src="../img/Cafelogo.png" class="cart_image" alt="">
-              </div>
-              <div class="col-6">
-                <span class="features-description pe-2 fw-bold">Americano Coffee</span><br>
-                <small class="features-description pe-2">Price : $2</small>
-                <small class="ps-5 features-description pe-2">x3</small>
-              </div>
-              </div>
+              <?php } ?>
             </a>
           </li>
           <li>

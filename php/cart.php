@@ -17,99 +17,9 @@ require('../components/secondary_navbar.php');
       <img src="../img/coffee_icon.png" class="cafe_icon" alt="">
   </div>
 
-  <div class="col-3 px-3 mb-3">
+  <div class="row" id="cart_container">
 
-  <div class="card">
-      <div class="card-body">
-        <img src="../img/americano_coffee.jpg" class="product_picture" alt="">
-        <div class="row">
-          <div class="col-7">
-            <p class="product_name fw-bold mt-2 ms-1">Americano Coffee</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-7">
-            <span class="features-description ms-1">Price : $2</span>
-          </div>
-          <div class="offset-2 col-3">
-            <input type="number" id="quantity" class="form-control" value="1" />
-          </div>
-        </div>
-
-        <div class="row">
-          <p class="product_name fw-bold ms-1">Subtotal : $6</p>
-        </div>
-
-        <div class="row">
-        <button type="button" class="buttonhover text-white py-1 rounded-2 primary-btn">Remove to Cart</button>
-        </div>
-      </div>
-    </div>
   </div>
-
-  <div class="col-3 px-3 mb-3">
-
-<div class="card">
-    <div class="card-body">
-      <img src="../img/americano_coffee.jpg" class="product_picture" alt="">
-      <div class="row">
-        <div class="col-7">
-          <p class="product_name fw-bold mt-2 ms-1">Americano Coffee</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-7">
-          <span class="features-description ms-1">Price : $2</span>
-        </div>
-        <div class="offset-2 col-3">
-          <input type="number" id="quantity" class="form-control" value="1" />
-        </div>
-      </div>
-
-      <div class="row">
-        <p class="product_name fw-bold ms-1">Subtotal : $6</p>
-      </div>
-
-      <div class="row">
-      <button type="button" class="buttonhover text-white py-1 rounded-2 primary-btn">Remove to Cart</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="col-3 px-3 mb-3">
-
-<div class="card">
-    <div class="card-body">
-      <img src="../img/americano_coffee.jpg" class="product_picture" alt="">
-      <div class="row">
-        <div class="col-7">
-          <p class="product_name fw-bold mt-2 ms-1">Americano Coffee</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-7">
-          <span class="features-description ms-1">Price : $2</span>
-        </div>
-        <div class="offset-2 col-3">
-          <input type="number" id="quantity" class="form-control" value="1" />
-        </div>
-      </div>
-
-      <div class="row">
-        <p class="product_name fw-bold ms-1">Subtotal : $6</p>
-      </div>
-
-      <div class="row">
-      <button type="button" class="buttonhover text-white py-1 rounded-2 primary-btn">Remove to Cart</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-  
-
- 
 </section>
 
 <!-- End Item Cart Section -->
@@ -122,10 +32,10 @@ require('../components/secondary_navbar.php');
 <div class="card primarybg">
     <div class="card-body">
       <div class="row">
-          <p class="divider fw-bold mt-2 ms-1 text-center">Total Amount Payable : $10 </p>
+          <p class="divider fw-bold mt-2 ms-1 text-center">Total Amount Payable : &#8369; <span class="totalpayable"></span> </p>
       </div>
       <div class="row">
-      <a type="button" href="checkout.php" class="buttonhover text-white py-1 rounded-2 primary-btn mb-2 text-center">Proceed to Checkout</a>
+      <button type="button" class="buttonhover text-white py-1 rounded-2 primary-btn mb-2 text-center" id="proceed">Proceed to Checkout</button>
       <button type="button" class="buttonhover text-white py-1 rounded-2 primary-btn mb-2">Remove all in the Cart</button>
 
       </div>
@@ -136,11 +46,12 @@ require('../components/secondary_navbar.php');
 
 <!-- End Total in Cart Section -->
 
-
-
 <?php
 require('../modals/signin_signup.php');
+require('../modals/validation.php');
+require('../modals/successmodal.php');
 require('../modals/message.php');
 require('../modals/logout.php');
 require('../partials/footer.html');
 ?>
+<script src="../javascript/cart.js"></script>
