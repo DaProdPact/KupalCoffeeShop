@@ -30,6 +30,18 @@ else if(isset($_POST['login'])){
   $checkuser = "SELECT * FROM user_account WHERE user_email='$email_login' AND user_password = '$password_login'";
   $checksql = mysqli_query($connection,$checkuser);
 
+  $adminuser = "SELECT * FROM `admin` WHERE admin_username='$email_login' AND admin_password = '$password_login'";
+  $adminsql = mysqli_query($connection,$adminuser);
+
+
+  if($adminsql->num_rows > 0 ){
+    $data = $adminsql->fetch_assoc();
+    session_start();
+    // $_SESSION['id'] = $data['user_id'];
+    // $_SESSION['status'] = 'admin';
+    echo 0;
+  }
+  else{
   if($checksql->num_rows > 0 ){
     $data = $checksql->fetch_assoc();
     session_start();
@@ -40,5 +52,6 @@ else if(isset($_POST['login'])){
   else{
     echo 2;
   }
+}
 }
 ?>

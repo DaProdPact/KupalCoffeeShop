@@ -91,6 +91,32 @@
           <small class="form-helper ms-1 text-danger helper_login1" style="display:none;">Password is required*</small>
         </div>
 
+        <div class="row">
+          <div class="col-7 col-md-6">
+            <div class="form-check ms-md-2">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="CheckRememberMe"
+              />
+              <label class="form-check-label" for="CheckRemberMe"
+                >Remember Me</label
+              >
+            </div>
+          </div>
+          <div class="col-12 col-md-6 d-flex justify-content-end">
+            <div>
+              <span
+                id="forgetpass"
+                class="text-decoration-none"
+                data-mdb-dismiss="modal"
+                style="color: #544040;"
+
+                >Forget Password?</span
+              >
+            </div>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn primarytext" data-mdb-dismiss="modal">Close</button>

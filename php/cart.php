@@ -26,7 +26,7 @@ require('../components/secondary_navbar.php');
 
 <!-- End Total in Cart Section -->
 
-<div class="row">
+<div class="row cartpayable">
 <div class="offset-2 col-8 mb-3">
 
 <div class="card primarybg">
@@ -36,7 +36,7 @@ require('../components/secondary_navbar.php');
       </div>
       <div class="row">
       <button type="button" class="buttonhover text-white py-1 rounded-2 primary-btn mb-2 text-center" id="proceed">Proceed to Checkout</button>
-      <button type="button" class="buttonhover text-white py-1 rounded-2 primary-btn mb-2">Remove all in the Cart</button>
+      <button type="button" class="buttonhover text-white py-1 rounded-2 primary-btn mb-2" id="removeall">Remove all in the Cart</button>
 
       </div>
     </div>

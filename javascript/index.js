@@ -61,7 +61,7 @@ $(document).ready(function() {
             if(response == '1'){
               $('#signup_modal').modal('hide')
               $('.success').toast('show');
-              $('.primarytext').text('Register Successfully')
+              $('.toastmessage').text('Register Successfully')
               $('.form-control').val('')
             }
             else if(response == '2'){
@@ -116,6 +116,16 @@ $(document).ready(function() {
               function() 
               {
                 window.location.href = "home.php";
+              }, 1000);
+          }
+          else if(response == '0'){
+            $('#login_modal').modal('hide')
+            $('#success_modal').modal('show')
+            $('#successmodal').text('Admin Successfully Login')
+            setTimeout(
+              function() 
+              {
+                window.location.href = "admin/admindashboard.php";
               }, 1000);
           }
           else{

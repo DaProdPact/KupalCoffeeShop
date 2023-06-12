@@ -12,6 +12,16 @@ $(document).ready(function() {
       console.log(res);
       if(res == 2){
         // no item
+        $('.cartpayable').hide();
+        let rows = "";
+        rows += `<div class="col-8 offset-2 px-3 mb-3">
+        <div class="card" style="border:#DEB88B 10px double;">
+            <div class="card-body">
+              <p class="text-center fw-bold features-description" style="color:#DEB88B;">Your Cart is Empty</p>
+            </div>
+          </div>
+        </div>`;
+      $("#cart_container").html(rows);
       }
       else{
       var total = 0;
@@ -115,6 +125,48 @@ $(document).ready(function() {
           })
         })
 
+
+
+      })
+
+      $('#removeall').on('click',function(){
+        console.log('a')
+      $('#validation_modal').modal('show')
+        let removeallmodal = "";
+        removeallmodal += `<div class="modal-header primarybg features-description">
+            <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-cart-shopping"></i> Remove all from Cart</h5>
+            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+          <p class="fw-bold">Do you really want to remove all item from your shopping cart?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+            <button type="button" class="btn primarybg features-description fw-bold removeallcart">Remove all from Cart</button>
+          </div>`;
+
+        $("#remove_container").html(removeallmodal);
+        $('.removeallcart').on('click',function(){
+          let removeall = 'removeall';
+          $.ajax({
+            url: "../database/cart_connection.php",
+            method: "post",
+            data:{
+              removeall:removeall,
+            },
+            success:function (res) {
+              if(res == '1'){
+                $('#validation_modal').modal('hide')
+                $('#success_modal').modal('show')
+                $('#successmodal').text('Successfully Remove all from Cart')
+                setTimeout(
+                  function(){
+                    window.location.href = "cart.php";
+                },1000)
+              }
+            }
+          })
+        })
       })
 
     }

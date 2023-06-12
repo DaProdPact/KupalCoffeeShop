@@ -33,6 +33,11 @@ else if($_SERVER['REQUEST_METHOD'] == 'POST'){
        $removesql = mysqli_query($connection,$removequery); 
        echo 1;
     }
+    else if(isset($_POST['removeall'])){
+        $removeallquery = "DELETE FROM `cart` WHERE cart_user_id = '$session_id'";
+        $removeallsql = mysqli_query($connection,$removeallquery); 
+        echo 1;
+     }
 
 }
 ?>

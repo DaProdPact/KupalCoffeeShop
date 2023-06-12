@@ -1,0 +1,25 @@
+.title {
+  animation-name: example;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+}
+
+@keyframes example {
+  0%   { margin-left:1000px;}
+  25%  {}
+  50%  {}
+  100% {}
+}
+
+
+
+/* .home-section{
+  animation-name:home-section;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+}
+@keyframes home-section {
+  0%   { margin-left:-500px; visibility: hidden;}
+  50%   { margin-left:-200px; visibility: hidden;}
+  100% { margin-left:0px; visibility: visible;}
+} */

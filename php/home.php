@@ -11,7 +11,7 @@ require('../components/secondary_navbar.php');
 <!-- Home Section -->
 <div class="row bg-image">
   <div class="col-6">
-    <section class="row my-5">
+    <section class="row my-5" data-aos="fade-right" data-aos-duration="2000">
       <div class="col-8 bg-white bg-opacity-75 offset-2 border border-2 border-dark">
         <p class="quotes text-center">
           " Coffee always sounds like a brilliant idea. "
@@ -38,21 +38,21 @@ require('../components/secondary_navbar.php');
 <!-- Feature Section -->
 
 <section class="row mt-3">
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center title">
     <img src="../img/coffee_icon.png" class="cafe_icon" alt="">
     <p class="divider fw-bold">Kupal's Cafe</p>
     <img src="../img/coffee_icon.png" class="cafe_icon" alt="">
   </div>
 
   <div class="row my-3 gap-3 ps-5 me-5">
-    <div class="col-4 d-block-flex justify-content-center">
+    <div class="col-4 d-block-flex justify-content-center" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="100">
       <img src="../img/picture1.jpg" class="featues_picture" alt="">
       <h4 class="divider fw-bold mt-2 ms-2">REST , RELAX and REVIVE</h4> 
       <p class="ps-2 features-description">
         At Kupal cafe, people come from all around to rest, relax and revive with good coffee, good company and great food!
       </p>
     </div>
-    <div class="col-4 d-block-flex justify-content-center">
+    <div class="col-4 d-block-flex justify-content-center" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300">
       <img src="../img/picture2.jpg" class="featues_picture" alt="">
       <h4 class="divider fw-bold mt-2 ms-2">DID SOMEONE SAY "COFFEE" !</h4> 
       <p class="ps-2 features-description">
@@ -60,7 +60,7 @@ require('../components/secondary_navbar.php');
       </p>
       <p class="ps-2 features-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, odio?</p>
       </div>
-    <div class="col-3">
+    <div class="col-3" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500">
       <img src="../img/picture3.png" class="schedule" alt="">
     </div>
   </div>
@@ -70,7 +70,7 @@ require('../components/secondary_navbar.php');
 
 <!-- About Section -->
 
-<section class="row mt-3 mb-5 primarybg py-3">
+<section class="row mt-3 mb-5 primarybg py-3" data-aos="fade-right" data-aos-duration="2000">
 
   <div class="col-5">
     <img src="../img/about_images.jpg" class="about_image ms-5 rounded-3" alt="">
@@ -92,20 +92,21 @@ require('../components/secondary_navbar.php');
 
 <!-- Best Seller Section -->
 
-<section class="row mt-3 mb-5 ">
-<div class="d-flex justify-content-center">
+<section class="row mt-3 mb-5">
+<div class="d-flex justify-content-center" data-aos="fade-left" data-aos-duration="2000" >
     <img src="../img/coffee_icon.png" class="cafe_icon" alt="">
     <p class="divider fw-bold">Best Seller</p>
     <img src="../img/coffee_icon.png" class="cafe_icon" alt="">
   </div>
   <?php
+$animationloop = 100;
 $bestseller = "SELECT * FROM product LIMIT 3";
 $bestsellersql = mysqli_query($connection,$bestseller);
 while($row = mysqli_fetch_array($bestsellersql)){
+$animationloop;
 ?>
-  <div class="col-4 px-3">
-
-  <div class="card">
+  <div class="col-4 px-3 shadow" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="<?=$animationloop?>">
+  <div class="card shadow">
       <div class="card-body">
         <img src="../product_image/<?=$row['product_picture']?>" class="featues_picture" alt="">
         <div class="row">
@@ -124,7 +125,8 @@ while($row = mysqli_fetch_array($bestsellersql)){
       </div>
     </div>
   </div> 
-<?php } ?>
+<?php $animationloop = $animationloop + 200;
+} ?>
 </section>
 <!-- End Best Seller Section -->
 
