@@ -9,7 +9,7 @@ require('../components/primary_navbar.php');
 require('../components/secondary_navbar.php');
 ?>
 <!-- Home Section -->
-<div class="row bg-image">
+<div class="row bg-image primaryhome">
   <div class="col-6">
     <section class="row my-5" data-aos="fade-right" data-aos-duration="2000">
       <div class="col-8 bg-white bg-opacity-75 offset-2 border border-2 border-dark">
@@ -37,7 +37,7 @@ require('../components/secondary_navbar.php');
 
 <!-- Feature Section -->
 
-<section class="row mt-3">
+<section class="row mt-3 hoverprimary">
   <div class="d-flex justify-content-center title">
     <img src="../img/coffee_icon.png" class="cafe_icon" alt="">
     <p class="divider fw-bold">Kupal's Cafe</p>
@@ -105,12 +105,12 @@ $bestsellersql = mysqli_query($connection,$bestseller);
 while($row = mysqli_fetch_array($bestsellersql)){
 $animationloop;
 ?>
-  <div class="col-4 px-3 shadow" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="<?=$animationloop?>">
-  <div class="card shadow">
+  <div class="col-4 px-2" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="<?=$animationloop?>">
+  <div class="card">
       <div class="card-body">
         <img src="../product_image/<?=$row['product_picture']?>" class="featues_picture" alt="">
         <div class="row">
-          <div class="col-7">
+          <div class="col-12">
             <p class="item_name fw-bold mt-2 ms-1"><?=$row['product_name']?></p>
           </div>
         </div>

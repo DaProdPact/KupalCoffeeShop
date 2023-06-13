@@ -78,6 +78,10 @@
         <div class="alert alert-danger invalid" role="alert" style="display:none;">
           Invalid Credentials
         </div>
+
+        <div class="alert alert-danger restricted" role="alert" style="display:none;">
+          Your account is restricted
+        </div>
       
         <div class="form mb-2">
           <label class="form-label ms-1 features-description fw-bold">Email Address</label>

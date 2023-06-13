@@ -1,4 +1,62 @@
 $(document).ready(function() {
+
+  
+  $( ".primaryhome" ).hover(
+    function() {
+      $('#primarynavbar').removeClass( "sticky-top" )
+      $('#primarynavbar').addClass( "primarybg" )
+      $("#primarynavbar").removeClass("primarybghover");
+    }
+  );
+
+
+  $( ".hoverprimary" ).hover(
+    function() {
+      $('#primarynavbar').addClass( "sticky-top" )
+      $("#primarynavbar").addClass("primarybghover");
+      $('#primarynavbar').removeClass( "primarybg" )
+
+    }
+  );
+
+
+  $('.seen').on('click',function(){
+    var seen = $(this).attr('id')
+    console.log(seen)
+    $.ajax({
+      url:'../database/signin_signup_connection.php',
+      method:'post',
+      data:{
+        seen:seen,
+      },
+      success:function(response){
+        console.log(response)
+        $('.seennotif').text('0')
+      }
+    })
+  })
+
+  $('.adminseen').on('click',function(){
+
+    let adminseen = 'adminseen'
+    $.ajax({
+      url:'../database/signin_signup_connection.php',
+      method:'post',
+      data:{
+        adminseen:adminseen,
+      },
+      success:function(response){
+        console.log(response)
+        $('.adminseennotif').text('0')
+      }
+    })
+  })
+  
+
+
+
+
+
   $('#signup').on('click',function(){
     $('#signup_modal').modal('show')
   });
@@ -125,8 +183,11 @@ $(document).ready(function() {
             setTimeout(
               function() 
               {
-                window.location.href = "admin/admindashboard.php";
+                window.location.href = "../admin/admindashboard.php";
               }, 1000);
+          }
+          else if(response == '3'){
+            $('.restricted').show();
           }
           else{
             $('.invalid').show();

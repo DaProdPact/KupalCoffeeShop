@@ -8,6 +8,10 @@
 .primarybg{
   background-color:#DEB88B;
 }
+.dashboardbg{
+  background-color:#877a6b;
+}
+#877a6b
 .primarynav{
   height:7vh;  
 }
@@ -68,7 +72,7 @@ i{
 }
 
 .featues_picture{
-  width: 25em;
+  width: 23em;
   height: 12em;
   border: #544040 5px solid;
 }
@@ -124,3 +128,11 @@ i{
 input[type="number"]::-webkit-inner-spin-button {
   display: none;
 }
+
+ .primarybghover{
+  background-color:#b5ab9f;
+}
+
+/* .hoverprimary:hover{
+  background-color: #544040;
+} */
